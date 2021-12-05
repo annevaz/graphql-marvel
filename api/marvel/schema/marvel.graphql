@@ -1,0 +1,24 @@
+const { gql } = require('apollo-server')
+
+const marvelSchema = gql `
+    type Character {
+        name: String!
+    }
+
+    type Comic {
+        title: String!
+    }
+
+    type Story {
+        id: ID!
+        title: String!
+    }
+
+    type Query {
+        characters: [Character]
+        comics(idCharacter: ID!): [Comic]
+        stories(idCharacter: ID!): [Story]
+    }
+`
+
+module.exports = marvelSchema
